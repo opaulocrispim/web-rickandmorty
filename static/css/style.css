@@ -1,0 +1,140 @@
+::-webkit-scrollbar{
+    width: 6px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #010101;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #c4d236;
+    border-radius: 5px;
+}
+
+
+
+body{
+    background-image: url('../img/background1.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.centro{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.card{
+    margin-left: 3px;
+    width: 97%;
+}
+
+.card-body{
+    border-radius: 0%;
+}
+
+.principal{
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+        }
+
+.item{
+    padding: 20px;
+    font-size: small;
+}
+
+.sombraCartao:hover {
+    box-shadow:  0 0 1em #c4d236;
+    }
+
+.buscahover:hover {
+    box-shadow:  0 0 1em whitesmoke;
+    }
+
+.personagemMorto{
+    position: absolute;
+    top: 0px;
+
+}
+  
+    
+
+#busca{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 70px;
+    width: 430px;
+
+}
+
+#botao{
+    border: none;
+    background-color: #212529;
+    color: aliceblue;
+}
+#paginacao{
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo{
+    margin-right: 3px;
+}
+
+#edicaoModal{
+    background-color: black;
+    height: 450px;
+    margin-top: 50px;
+}
+
+#imagemModal{
+    margin-left: 15px;
+    margin-top: 23px;
+}
+
+#textoModal{
+    margin-top: 20px;
+}
+
+#corPaginacao{
+    background-color: #c4d236;
+    border-color: white;
+    color: white;
+}
+
+#corPaginacao:focus{
+    box-shadow:  0 0 1em #c4d236;
+}
+
+#clickPaginacao:focus{
+    box-shadow:  0 0 1em #c4d236;
+}
+
+#planeta{
+    font-size: 12px;
+    color: darkgray;
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+#subtitulo{
+    color: #c4d236;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #c4d236;
+    border-color: whitesmoke;
+  }
+
+#btn-back-to-top:focus{
+    box-shadow:  0 0 1em #c4d236;
+}

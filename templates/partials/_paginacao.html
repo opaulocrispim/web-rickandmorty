@@ -1,0 +1,50 @@
+<div>
+    <nav aria-label="Page navigation example " id="paginacao"></nav>
+    <ul class="pagination justify-content-center">
+        {% if paginaAtual[0] == 1 %}
+
+        <li class="page-item disabled">
+            <a class="page-link text-white bg-dark">Anterior</a>
+        </li>
+
+        {% else %}
+
+        <li class="page-item "><a class="page-link text-white bg-dark"
+                href="{{ url_for('pagina', num_page=paginaAtual[0]-1) }}">Anterior</a></li>
+        {% endif %}
+
+        {% for paginas in range(1, info+1) %}
+
+        {% if paginas == paginaAtual[0] %}
+
+        <li class="page-item "><a class="page-link" id="corPaginacao"
+                href="{{ url_for('pagina', num_page=paginas) }}">{{paginas}}</a></li>
+
+        {% else %}
+
+        <li class="page-item "><a class="page-link text-white bg-dark" id="clickPaginacao"
+                href="{{ url_for('pagina', num_page=paginas) }}">{{paginas}}</a></li>
+
+        {% endif %}
+
+
+
+        {% endfor %}
+
+        {% if paginaAtual[0] == info %}
+
+        <li class="page-item disabled">
+            <a class="page-link text-white bg-dark">Próxima</a>
+        </li>
+
+        {% else %}
+
+        <li class="page-item text-white bg-dark">
+            <a class="page-link text-white bg-dark" href="{{ url_for('pagina', num_page=paginaAtual[0]+1) }}">Próxima</a>
+        </li>
+
+        {% endif %}
+
+    </ul>
+    </nav>
+</div>

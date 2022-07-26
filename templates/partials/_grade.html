@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div class="centro row row-cols-2 row-cols-lg-4 g-1">
+
+  
+      {% for personagem in lista %}
+  
+      <div class="item">
+        <div class="card h-100 sombraCartao text-white bg-dark ">
+          {% if personagem.status == 'Vivo' %}
+          <img src="{{personagem.imagem}}" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#modal"
+            onclick="dados('{{personagem.nome}}', '{{personagem.status}}', '{{personagem.especie}}', '{{personagem.tipo}}', '{{personagem.genero}}',
+             '{{personagem.origem[0]['nome']}}', '{{personagem.origem[0]['url']}}', '{{personagem.localizacao[0]['nome']}}', '{{personagem.localizacao[0]['url']}}', '{{personagem.imagem}}',
+              '{{personagem.episodio[-1]['url']}}')">
+  
+          {% elif personagem.status == 'Desconhecido' %}
+          <img src="{{personagem.imagem}}" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#modal"
+            onclick="dados('{{personagem.nome}}', '{{personagem.status}}', '{{personagem.especie}}', '{{personagem.tipo}}', '{{personagem.genero}}',
+            '{{personagem.origem[0]['nome']}}', '{{personagem.origem[0]['url']}}', '{{personagem.localizacao[0]['nome']}}', '{{personagem.localizacao[0]['url']}}', '{{personagem.imagem}}',
+             '{{personagem.episodio[-1]['url']}}')">
+  
+          {% else %}
+          <img src="{{personagem.imagem}}" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#modal"
+            onclick="dados('{{personagem.nome}}', '{{personagem.status}}', '{{personagem.especie}}', '{{personagem.tipo}}', '{{personagem.genero}}',
+            '{{personagem.origem[0]['nome']}}', '{{personagem.origem[0]['url']}}', '{{personagem.localizacao[0]['nome']}}', '{{personagem.localizacao[0]['url']}}', '{{personagem.imagem}}',
+             '{{personagem.episodio[-1]['url']}}')">
+  
+          <img src="{{ url_for('static', filename='img/morto.png')}}" alt=""
+            class="opacity-50 personagemMorto card-img-top" data-bs-toggle="modal" data-bs-target="#modal" onclick="dados('{{personagem.nome}}', '{{personagem.status}}', '{{personagem.especie}}', '{{personagem.tipo}}', '{{personagem.genero}}',
+            '{{personagem.origem[0]['nome']}}', '{{personagem.origem[0]['url']}}', '{{personagem.localizacao[0]['nome']}}', '{{personagem.localizacao[0]['url']}}', '{{personagem.imagem}}',
+             '{{personagem.episodio[-1]['url']}}')">
+  
+          {% endif %}
+          <div class="card-body text-white">
+            <h6 class="card-title ">{{personagem.nome}}</h6>
+            <p class="card-text">{{personagem.especie}}</small></p>
+          </div>
+        </div>
+      </div>
+  
+      {% endfor %}
+    </div>
+  </div>

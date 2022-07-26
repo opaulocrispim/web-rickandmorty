@@ -1,0 +1,159 @@
+// Puxa os dados do personagem selecionado
+function dados(nome, status, especie, tipo, genero, origem, urlOrigem, localizacao, urlLocalizacao, imagem, episodio) {
+
+    //Limpa os campos após fechar o modal
+    document.querySelector('.nomePersonagem').innerHTML = '';
+    document.querySelector('.imagemPersonagem').innerHTML = '';
+    document.querySelector('.sobrePersonagem').innerHTML = '';
+    document.querySelector('.sobreOrigem').innerHTML = '';
+    document.querySelector('.sobreLocalizacao').innerHTML = '';
+
+    //Condoções de texto
+    var vivo = 'está vivo e bem'
+    var morto = 'está morto'
+    var desconhecido = 'não se sabe se está vivo ou morto'
+    var condicao = ''
+    var visto = ''
+    var tipoPersonagem = ''
+    var gen1 = 'um '
+    gen2 = 'visto'
+
+    if (genero === 'Feminino') {
+      vivo = 'está viva e bem';
+      morto = 'está morta';
+      desconhecido = 'não se sabe se está viva ou morta';
+      gen1 = 'uma '
+      gen2 = 'vista'
+    }
+
+    if (status === 'Vivo') {
+      condicao = vivo;
+    }
+    else if (status === 'Morto') {
+      condicao = morto;
+    }
+    else if (status === 'Desconhecido') {
+      condicao = desconhecido;
+    }
+    else {
+      condicao = '';
+    }
+
+    if (tipo !== 'None') {
+      tipoPersonagem = ` do tipo ${tipo}`
+    }
+    else {
+      tipoPersonagem = ''
+    }
+
+    //Get para a origem
+    if (urlOrigem !== '') {
+      fetch(urlOrigem, {
+        method: 'GET'
+      })
+        .then(response => response.json())
+        .then(function (json) {
+
+          var origem = document.querySelector('.origem');
+
+          origem.innerHTML += `<p id="planeta">` + json.tipo + `</p>
+          <h5>`+ json.nome + `</h5>
+          <h7>`+ json.dimensao + `</h7><br> 
+          <i class="fa-solid fa-person"></i> `+ json.residentes.length + ` Residentes `
+
+        });
+    }
+    else if (urlOrigem === '') {
+      var origem = document.querySelector('.sobreOrigem');
+
+      origem.innerHTML += `<p>Planeta desconhecido, Dimensão desconhecida.</p>`
+    };
+
+    //Get para a localização
+    if (urlLocalizacao !== '') {
+      fetch(urlLocalizacao, {
+        method: 'GET'
+      })
+        .then(response => response.json())
+        .then(function (json) {
+
+          var ultimaLocalizacao = document.querySelector('.ultimoLocal');
+
+          ultimaLocalizacao.innerHTML += `<p id="planeta">` + json.tipo + `</p>
+          <h5>`+ json.nome + `</h5>
+          <h7>`+ json.dimensao + `</h7><br>
+          <i class="fa-solid fa-person"></i> `+ json.residentes.length + ` Residentes`
+
+        });
+    }
+    else if (urlLocalizacao === '') {
+      var ultimaLocalizacao = document.querySelector('.ultimoLocal');
+
+      ultimaLocalizacao.innerHTML += `<p>Desconhecida</p>`
+    };
+
+
+    //Get para obter a data do episódio
+    fetch(episodio, {
+      method: 'GET'
+    })
+      .then(response => response.json())
+      .then(function (json) {
+
+        var visto = document.querySelector('.visto');
+
+        var dataoriginal = json.ida_ao_ar;
+        novadata = dataoriginal.split('-').reverse().join('/');
+
+        visto.innerHTML += novadata + `.`
+
+      });
+
+    //Modelando os dados do modal
+    var nomePersonagem = document.querySelector('.nomePersonagem')
+    nomePersonagem.innerHTML += `
+    <h4 class="modal-title" id="exampleModalLabel">`+ nome + `</h4  >`
+
+    var imagemPersonagem = document.querySelector('.imagemPersonagem')
+    imagemPersonagem.innerHTML += `<img src="` + imagem + `" class="img-thumbnail p-0" alt="...">`
+
+    var sobrePersonagem = document.querySelector('.sobrePersonagem')
+    sobrePersonagem.innerHTML += `<p class="visto">` + nome + ` é ` + gen1 + especie + tipoPersonagem + ` do sexo ` + genero + `, ` + condicao + `, a última vez que foi `+ gen2 +` foi em </p>`
+
+    var sobreOrigem = document.querySelector('.sobreOrigem')
+    sobreOrigem.innerHTML += `<p class="origem"></p>`
+
+    var sobreLocalizacao = document.querySelector('.sobreLocalizacao')
+    sobreLocalizacao.innerHTML += `<p class="ultimoLocal"></p>`
+
+    //Limpar quando clicar em fechar no modal
+    function limpar() {
+      document.querySelector('.nomePersonagem').innerHTML = '';
+      document.querySelector('.sobreOrigem').innerHTML = '';
+    }
+  } 
+
+//Botão para o topo
+let mybutton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 20 ||
+    document.documentElement.scrollTop > 20
+  ) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+mybutton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

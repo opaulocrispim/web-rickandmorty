@@ -1,0 +1,15 @@
+    <div class="principal">
+        <h1>
+            <a href="{{url_for('index')}}">
+                <img src="{{ url_for('static', filename='img/logo1.png')}}" height="155px" id="logo">
+            </a>
+        </h1>
+    </div>
+
+
+    <form action="{{ url_for('buscar') }}" method="post">
+        <div class="input-group mb-3 " id="busca">
+            <input type="text" name="CampoDeBusca" class="form-control bg-dark text-white opacity-50 buscahover" placeholder="Procure por um personagem..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <span class="input-group-text bg-dark opacity-50 buscahover" id="basic-addon2"><button type="submit" id="botao">Buscar</button></span>
+        </div>
+    </form>
