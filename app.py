@@ -36,3 +36,4 @@ def pagina(num_page):
     return redirect(url_for('resultado'))
 
 
+app.run()
