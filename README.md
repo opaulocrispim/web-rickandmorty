@@ -1,1 +1,6 @@
-# web-rickandmorty
+<h1>Rick and Morty - Buscador de personagens (<a href="https://web-rickandmorty.herokuapp.com/">Demo</a>)</h1>
+<p>Aplicação web desenvolvida em Flask, baseada nos personagens da série Rick and Morty, onde seu objetivo é mostrar informações sobre os personagens, por exemplo, status atual e localização.</p>
+<p>A aplicação é alimentada por uma <a href="https://github.com/opaulocrispim/drf-rickandmorty-api">API Django Rest</a> também desenvolvida por mim, o back-end foi desenvolvido em Flask, que realiza as principais requisições da API, para o front-end utilizei Bootstrap 4, e para a requisição de menores informações como o número de residentes ou visto por último foi utilizado JavaScript, onde após todos os dados do personagem serem obtidos, o JavaScript modela os dados no modal.</p>
+<h2>Como utilizar</h2>
+<p>A app se comporta como um buscador, onde na página inicial temos um campo de busca, é possível realizar uma busca pelo nome de um personagem e receber a resposta de todas as suas variantes cadastradas, ou clicar em 'Buscar' com o campo em branco, assim retornando todos os personagens cadastrados.</p>
+<p>Após realizar a busca, você irá visualizar as figuras de cada personagem, seguido de seu nome é espécie, para mais informações de um personagem específico, basta clicar em sua imagem, onde será exibido as informações conhecidas sobre o personagem.</p>
