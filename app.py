@@ -5,6 +5,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app)
 
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+
 busca_realizada = []
 paginacao = []
 
@@ -35,8 +39,4 @@ def pagina(num_page):
     paginacao.append(num_page)
     return redirect(url_for('resultado'))
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
 
-app.run()
